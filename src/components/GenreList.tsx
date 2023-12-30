@@ -1,12 +1,11 @@
-import { Icon, Image } from "@chakra-ui/react";
 import useGenres from "../hooks/useGenres";
 
 const GenreList = () => {
-  const { genres, error } = useGenres();
+  const { data, error } = useGenres();
 
   return (
     <ul>
-      {genres.map((genre) => (
+      {data.map((genre) => (
         <li key={genre.id}>{genre.name}</li>
       ))}
     </ul>
