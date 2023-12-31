@@ -1,7 +1,7 @@
+import imagePlaceHolder from "../assets/No-Image-Placeholder.svg";
+
 const getCroppedImageUrl = (url: string) => {
-  if (!url) return "";
-  // Demo URL to edit.
-  //"https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg"
+  if (!url) return imagePlaceHolder;
 
   const startIndex = url.indexOf("media/");
   const restUrl = url.indexOf("games/");
