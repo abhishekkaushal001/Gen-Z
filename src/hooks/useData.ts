@@ -2,13 +2,19 @@ import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import { CanceledError } from "axios";
 import Genres from "../interfaces/genres";
+import ParentPlatforms from "../interfaces/parentPlatforms";
 
 interface Response<T> {
   count: number;
   results: T[];
 }
 
-const useData = <T>(endpoint: string, genre?: Genres, deps?: any[]) => {
+const useData = <T>(
+  endpoint: string,
+  genre?: Genres,
+  platform?: ParentPlatforms,
+  deps?: any[]
+) => {
   const [data, setData] = useState<T[]>([]);
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);
@@ -21,7 +27,7 @@ const useData = <T>(endpoint: string, genre?: Genres, deps?: any[]) => {
       apiClient
         .get<Response<T>>(endpoint, {
           signal: controller.signal,
-          params: { genres: genre?.slug },
+          params: { genres: genre?.slug, parent_platforms: platform?.id },
         })
         .then((res) => {
           setData(res.data.results);

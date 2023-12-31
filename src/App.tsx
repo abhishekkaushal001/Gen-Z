@@ -55,7 +55,10 @@ function App() {
           selectedPlatform={getPlatform(selectedPlatform)}
           onSelectplatform={(platform) => setPlatform(platform)}
         />
-        <GameGrid genre={getGenre(selectedGenre)} />
+        <GameGrid
+          genre={getGenre(selectedGenre)}
+          platform={getPlatform(selectedPlatform)}
+        />
       </GridItem>
     </Grid>
   );
