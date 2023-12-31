@@ -5,9 +5,10 @@ import Genres from "../interfaces/genres";
 
 interface Props {
   onSelectGenre: (genre: Genres) => void;
+  genreSelected?: Genres;
 }
 
-const GenreList = ({ onSelectGenre }: Props) => {
+const GenreList = ({ onSelectGenre, genreSelected }: Props) => {
   const { data, error, isLoading } = useGenres();
   const skeletons = [0, 1, 2, 3, 4, 5, 6];
 
@@ -28,6 +29,7 @@ const GenreList = ({ onSelectGenre }: Props) => {
             />
             <Box overflow="hidden" _hover={{ overflow: "visible" }}>
               <Button
+                fontWeight={genreSelected?.id === genre.id ? "bold" : ""}
                 onClick={() => onSelectGenre(genre)}
                 variant="link"
                 fontSize="lg"
