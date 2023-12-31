@@ -13,6 +13,7 @@ const useData = <T>(
   endpoint: string,
   genre?: Genres,
   platform?: ParentPlatforms,
+  sort?: string,
   deps?: any[]
 ) => {
   const [data, setData] = useState<T[]>([]);
@@ -27,7 +28,11 @@ const useData = <T>(
       apiClient
         .get<Response<T>>(endpoint, {
           signal: controller.signal,
-          params: { genres: genre?.slug, parent_platforms: platform?.id },
+          params: {
+            genres: genre?.slug,
+            parent_platforms: platform?.id,
+            ordering: sort,
+          },
         })
         .then((res) => {
           setData(res.data.results);

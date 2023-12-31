@@ -8,10 +8,11 @@ import ParentPlatforms from "../interfaces/parentPlatforms";
 interface Props {
   genre?: Genres;
   platform?: ParentPlatforms;
+  sort?: string;
 }
 
-const GameGrid = ({ genre, platform }: Props) => {
-  const { data, error, isLoading } = useGames(genre, platform);
+const GameGrid = ({ genre, platform, sort }: Props) => {
+  const { data, error, isLoading } = useGames(genre, platform, sort);
   const skeletons = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (

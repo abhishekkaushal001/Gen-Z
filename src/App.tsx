@@ -66,6 +66,7 @@ function App() {
         <GameGrid
           genre={getGenre(selectedGenre)}
           platform={getPlatform(selectedPlatform)}
+          sort={selectedSort}
         />
       </GridItem>
     </Grid>

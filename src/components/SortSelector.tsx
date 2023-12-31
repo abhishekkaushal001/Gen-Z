@@ -8,26 +8,29 @@ interface Props {
 
 const SortSelector = ({ onSelectSort, selectedSort }: Props) => {
   const orders = [
-    "Relevance",
-    "Date Added",
-    "Name",
-    "Release Date",
-    "Popularity",
-    "Rating",
+    { value: "", label: "Relevance" },
+    { value: "-added", label: "Date Added" },
+    { value: "name", label: "Name" },
+    { value: "-released", label: "Release Date" },
+    { value: "-metacritic", label: "Popularity" },
+    { value: "-rating", label: "Average Rating" },
   ];
+
+  const sort = orders.find((o) => o.value === selectedSort);
 
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        {selectedSort || "Order by: Relevance"}
+        Order by: {sort?.label || "Relevance"}
       </MenuButton>
       <MenuList>
         {orders.map((order) => (
           <MenuItem
-            onClick={() => onSelectSort(order)}
-            key={Math.random().toPrecision(5)}
+            onClick={() => onSelectSort(order.value)}
+            key={order.value}
+            value={order.value}
           >
-            {order}
+            {order.label}
           </MenuItem>
         ))}
       </MenuList>
