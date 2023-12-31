@@ -14,6 +14,7 @@ const useData = <T>(
   genre?: Genres,
   platform?: ParentPlatforms,
   sort?: string,
+  search?: string,
   deps?: any[]
 ) => {
   const [data, setData] = useState<T[]>([]);
@@ -32,6 +33,7 @@ const useData = <T>(
             genres: genre?.slug,
             parent_platforms: platform?.id,
             ordering: sort,
+            search: search,
           },
         })
         .then((res) => {

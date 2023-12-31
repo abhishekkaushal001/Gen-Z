@@ -9,10 +9,11 @@ interface Props {
   genre?: Genres;
   platform?: ParentPlatforms;
   sort?: string;
+  serach?: string;
 }
 
-const GameGrid = ({ genre, platform, sort }: Props) => {
-  const { data, error, isLoading } = useGames(genre, platform, sort);
+const GameGrid = ({ genre, platform, sort, serach }: Props) => {
+  const { data, error, isLoading } = useGames(genre, platform, sort, serach);
   const skeletons = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (

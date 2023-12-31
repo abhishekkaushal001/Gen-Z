@@ -15,6 +15,7 @@ function App() {
     null
   );
   const [selectedSort, setSort] = useState("");
+  const [serachQuery, setSearchQuery] = useState("");
 
   const getGenre = (genre: Genres | null) => {
     if (genre === null) return;
@@ -40,7 +41,7 @@ function App() {
       }}
     >
       <GridItem area={"nav"}>
-        <NavBar />
+        <NavBar onSerach={(serach) => setSearchQuery(serach)} />
       </GridItem>
 
       <Show above="lg">
@@ -67,6 +68,7 @@ function App() {
           genre={getGenre(selectedGenre)}
           platform={getPlatform(selectedPlatform)}
           sort={selectedSort}
+          serach={serachQuery}
         />
       </GridItem>
     </Grid>
