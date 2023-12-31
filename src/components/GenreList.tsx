@@ -7,7 +7,7 @@ interface Props {
   onSelectGenre: (genre: Genres) => void;
 }
 
-const GenreList = () => {
+const GenreList = ({ onSelectGenre }: Props) => {
   const { data, error, isLoading } = useGenres();
   const skeletons = [0, 1, 2, 3, 4, 5, 6];
 
@@ -28,7 +28,7 @@ const GenreList = () => {
             />
             <Box overflow="hidden" _hover={{ overflow: "visible" }}>
               <Button
-                onClick={() => console.log(genre)}
+                onClick={() => onSelectGenre(genre)}
                 variant="link"
                 fontSize="lg"
               >
