@@ -1,13 +1,12 @@
-import Game from "../interfaces/game";
 import Genres from "../interfaces/genres";
 import ParentPlatforms from "../interfaces/parentPlatforms";
-import useDataQuery from "./useDataQuery";
+import useInfineData from "./useInfineData";
 
 const useGames = (
   genre?: Genres,
   platform?: ParentPlatforms,
   sort?: string,
   search?: string
-) => useDataQuery<Game>("/games", genre, platform, sort, search);
+) => useInfineData(genre, platform, sort, search);
 
 export default useGames;
