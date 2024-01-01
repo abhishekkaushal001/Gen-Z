@@ -1,6 +1,6 @@
 import Genres from "../interfaces/genres";
-import useData from "./useData";
+import useDataQuery from "./useDataQuery";
 
-const useGenres = () => useData<Genres>("/genres");
+const useGenres = () => useDataQuery<Genres>("/genres");
 
 export default useGenres;
