@@ -1,19 +1,13 @@
 import Game from "../interfaces/game";
 import Genres from "../interfaces/genres";
 import ParentPlatforms from "../interfaces/parentPlatforms";
-import useData from "./useData";
+import useDataQuery from "./useDataQuery";
 
 const useGames = (
   genre?: Genres,
   platform?: ParentPlatforms,
   sort?: string,
   search?: string
-) =>
-  useData<Game>("/games", genre, platform, sort, search, [
-    genre?.slug,
-    platform?.id,
-    sort,
-    search,
-  ]);
+) => useDataQuery<Game>("/games", genre, platform, sort, search);
 
 export default useGames;

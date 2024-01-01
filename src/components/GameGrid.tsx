@@ -16,7 +16,7 @@ const GameGrid = ({ genre, platform, sort, serach }: Props) => {
   const { data, error, isLoading } = useGames(genre, platform, sort, serach);
   const skeletons = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-  if (error) return <Text>{error}</Text>;
+  if (error) return <Text>{error.message}</Text>;
 
   return (
     <SimpleGrid
@@ -27,7 +27,7 @@ const GameGrid = ({ genre, platform, sort, serach }: Props) => {
       {isLoading &&
         skeletons.map((skeleton) => <CardLoadingSkeleton key={skeleton} />)}
 
-      {data.map((g) => (
+      {data?.map((g) => (
         <GameCard game={g} key={g.id} />
       ))}
     </SimpleGrid>
