@@ -1,4 +1,4 @@
-import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import apiClient from "../services/api-client";
 import Genres from "../interfaces/genres";
 import ParentPlatforms from "../interfaces/parentPlatforms";
