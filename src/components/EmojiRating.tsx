@@ -21,8 +21,8 @@ const EmojiRating = ({ rating }: Props) => {
 
   return (
     <HStack>
-      {current.map((icon) => (
-        <Icon as={icon} marginTop={2} boxSize="25px" />
+      {current.map((icon, index) => (
+        <Icon key={index} as={icon} marginTop={2} boxSize="25px" />
       ))}
     </HStack>
   );
