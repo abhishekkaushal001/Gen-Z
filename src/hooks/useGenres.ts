@@ -1,6 +1,7 @@
+import genres from "../data/genres";
 import Genres from "../interfaces/genres";
-import useDataQuery from "./useDataQuery";
+import useDataQueryExt from "./useDataQueryExt";
 
-const useGenres = () => useDataQuery<Genres>("/genres");
+const useGenres = () => useDataQueryExt<Genres>("/genres", genres);
 
 export default useGenres;

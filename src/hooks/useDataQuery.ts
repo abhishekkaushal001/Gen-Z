@@ -2,11 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import apiClient from "../services/api-client";
 import Genres from "../interfaces/genres";
 import ParentPlatforms from "../interfaces/parentPlatforms";
-
-interface Response<T> {
-  count: number;
-  results: T[];
-}
+import Response from "../interfaces/fetchResponse";
 
 const useDataQuery = <T>(
   endpoint: string,
