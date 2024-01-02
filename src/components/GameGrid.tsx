@@ -30,7 +30,12 @@ const GameGrid = ({ genre, platform, sort, serach }: Props) => {
       dataLength={(data?.pages.length || 0) * (data?.pages[0].count || 0)}
       hasMore={hasNextPage}
       loader={
-        <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} spacing={6}>
+        <SimpleGrid
+          columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
+          spacing={6}
+          marginY={5}
+          paddingX={5}
+        >
           {skeletons.map((skeleton) => (
             <CardLoadingSkeleton key={skeleton} />
           ))}
@@ -38,7 +43,11 @@ const GameGrid = ({ genre, platform, sort, serach }: Props) => {
       }
       next={() => fetchNextPage()}
     >
-      <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} spacing={6}>
+      <SimpleGrid
+        columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
+        spacing={6}
+        paddingX={5}
+      >
         {isLoading &&
           skeletons.map((skeleton) => <CardLoadingSkeleton key={skeleton} />)}
 

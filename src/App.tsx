@@ -55,29 +55,31 @@ function App() {
       </Show>
 
       <GridItem area={"main"}>
-        <Box paddingLeft={3}>
-          <GameHeading
+        <Box>
+          <Box paddingLeft="20px" marginRight="20px">
+            <GameHeading
+              genre={getGenre(selectedGenre)}
+              platform={getPlatform(selectedPlatform)}
+            />
+            <HStack spacing={5} marginBottom={5}>
+              <PlatformSelector
+                selectedPlatform={getPlatform(selectedPlatform)}
+                onSelectplatform={(platform) => setPlatform(platform)}
+              />
+              <SortSelector
+                selectedSort={selectedSort}
+                onSelectSort={(order) => setSort(order)}
+              />
+            </HStack>
+          </Box>
+
+          <GameGrid
             genre={getGenre(selectedGenre)}
             platform={getPlatform(selectedPlatform)}
+            sort={selectedSort}
+            serach={serachQuery}
           />
-          <HStack spacing={5} marginBottom={5}>
-            <PlatformSelector
-              selectedPlatform={getPlatform(selectedPlatform)}
-              onSelectplatform={(platform) => setPlatform(platform)}
-            />
-            <SortSelector
-              selectedSort={selectedSort}
-              onSelectSort={(order) => setSort(order)}
-            />
-          </HStack>
         </Box>
-
-        <GameGrid
-          genre={getGenre(selectedGenre)}
-          platform={getPlatform(selectedPlatform)}
-          sort={selectedSort}
-          serach={serachQuery}
-        />
       </GridItem>
     </Grid>
   );
