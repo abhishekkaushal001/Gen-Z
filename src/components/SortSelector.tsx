@@ -12,9 +12,10 @@ const SortSelector = () => {
     { value: "-rating", label: "Average Rating" },
   ];
 
-  const { gameQuery, setSort } = useGameQueryStore();
+  const selectedSort = useGameQueryStore((s) => s.gameQuery.sort);
+  const setSort = useGameQueryStore((s) => s.setSort);
 
-  const sort = orders.find((o) => o.value === gameQuery.sort);
+  const sort = orders.find((o) => o.value === selectedSort);
 
   return (
     <Menu>

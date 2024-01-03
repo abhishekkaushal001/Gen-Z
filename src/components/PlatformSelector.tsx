@@ -6,14 +6,15 @@ import useGameQueryStore from "../store";
 const PlatformSelector = () => {
   const { data, error } = usePlatforms();
 
-  const { gameQuery, setPlatform } = useGameQueryStore();
+  const selectedPlatform = useGameQueryStore((s) => s.gameQuery.platforms);
+  const setPlatform = useGameQueryStore((s) => s.setPlatform);
 
   if (error) return null;
 
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        {gameQuery.platforms?.name || "Platforms"}
+        {selectedPlatform?.name || "Platforms"}
       </MenuButton>
       <MenuList>
         {data.map((platform) => (

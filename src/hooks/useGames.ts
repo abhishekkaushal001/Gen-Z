@@ -2,7 +2,7 @@ import useGameQueryStore from "../store";
 import useInfiniteData from "./useInfineData";
 
 const useGames = () => {
-  const { gameQuery } = useGameQueryStore();
+  const gameQuery = useGameQueryStore((s) => s.gameQuery);
 
   return useInfiniteData(
     gameQuery.genre,

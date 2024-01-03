@@ -13,7 +13,8 @@ import useGameQueryStore from "../store";
 const GenreList = () => {
   const { data, error, isLoading } = useGenres();
 
-  const { gameQuery, setGenre } = useGameQueryStore();
+  const setGenre = useGameQueryStore((s) => s.setGenre);
+  const selectedGenre = useGameQueryStore((s) => s.gameQuery.genre);
 
   const skeletons = [0, 1, 2, 3, 4, 5, 6];
 
@@ -38,7 +39,7 @@ const GenreList = () => {
                 src={genre.image_background}
               />
               <Button
-                fontWeight={gameQuery.genre?.id === genre.id ? "bold" : ""}
+                fontWeight={selectedGenre?.id === genre.id ? "bold" : ""}
                 onClick={() => setGenre(genre)}
                 variant="link"
                 fontSize="lg"
