@@ -1,12 +1,15 @@
-import Genres from "../interfaces/genres";
-import ParentPlatforms from "../interfaces/parentPlatforms";
-import useInfineData from "./useInfineData";
+import useGameQueryStore from "../store";
+import useInfiniteData from "./useInfineData";
 
-const useGames = (
-  genre?: Genres,
-  platform?: ParentPlatforms,
-  sort?: string,
-  search?: string
-) => useInfineData(genre, platform, sort, search);
+const useGames = () => {
+  const { gameQuery } = useGameQueryStore();
+
+  return useInfiniteData(
+    gameQuery.genre,
+    gameQuery.platforms,
+    gameQuery.sort,
+    gameQuery.search
+  );
+};
 
 export default useGames;

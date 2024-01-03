@@ -2,25 +2,12 @@ import { SimpleGrid, Text } from "@chakra-ui/react";
 import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import CardLoadingSkeleton from "./skeletons/CardLoadingSkeleton";
-import Genres from "../interfaces/genres";
-import ParentPlatforms from "../interfaces/parentPlatforms";
 import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-interface Props {
-  genre?: Genres;
-  platform?: ParentPlatforms;
-  sort?: string;
-  serach?: string;
-}
+const GameGrid = () => {
+  const { data, error, isLoading, fetchNextPage, hasNextPage } = useGames();
 
-const GameGrid = ({ genre, platform, sort, serach }: Props) => {
-  const { data, error, isLoading, fetchNextPage, hasNextPage } = useGames(
-    genre,
-    platform,
-    sort,
-    serach
-  );
   const skeletons = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   if (error) return <Text>{error.message}</Text>;

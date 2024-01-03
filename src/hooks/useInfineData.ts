@@ -5,7 +5,7 @@ import ParentPlatforms from "../interfaces/parentPlatforms";
 import Response from "../interfaces/fetchResponse";
 import Game from "../interfaces/game";
 
-const useInfineData = (
+const useInfiniteData = (
   genre?: Genres,
   platform?: ParentPlatforms,
   sort?: string,
@@ -40,4 +40,4 @@ const useInfineData = (
   });
 };
 
-export default useInfineData;
+export default useInfiniteData;
