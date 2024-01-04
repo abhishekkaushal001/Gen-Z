@@ -32,8 +32,9 @@ const HomePage = () => {
               <SortSelector />
             </HStack>
           </Box>
-
-          <GameGrid />
+          <Box marginTop={5}>
+            <GameGrid />
+          </Box>
         </Box>
       </GridItem>
     </Grid>
