@@ -27,7 +27,7 @@ const GamesDetailsPage = () => {
 
   return (
     <>
-      <SimpleGrid columns={{ base: 1, md: 2 }}>
+      <SimpleGrid columns={{ base: 1, md: 2 }} padding={7}>
         <Box>
           {isLoading && <Spinner />}
           <Heading marginBottom={3}>{data?.name}</Heading>

@@ -16,7 +16,7 @@ const SearchInput = () => {
           setSearch(ref.current.value);
         }
       }}
-      style={{ width: "50%" }}
+      style={{ width: "70%" }}
     >
       <InputGroup>
         <InputLeftElement children={<BsSearch />} />
