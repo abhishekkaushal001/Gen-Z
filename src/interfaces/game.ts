@@ -1,5 +1,6 @@
 import Genres from "./genres";
 import Platform from "./platform";
+import Publisher from "./pulisher";
 
 export default interface Game {
   id: number;
@@ -10,4 +11,6 @@ export default interface Game {
   metacritic: number;
   genres: Genres[];
   rating_top: number;
+  description_raw: string;
+  publishers: Publisher[];
 }

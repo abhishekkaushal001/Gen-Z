@@ -1,12 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import apiClient from "../services/api-client";
-
-interface Game {
-  id: number;
-  slug: string;
-  name: string;
-  description_raw: string;
-}
+import Game from "../interfaces/game";
 
 const useGame = (slug: string) => {
   return useQuery({
